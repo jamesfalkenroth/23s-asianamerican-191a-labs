@@ -29,5 +29,3 @@ fetch("map.geojson")
                 return layer.feature.properties.place;
             }).addTo(map);
     })
-
-

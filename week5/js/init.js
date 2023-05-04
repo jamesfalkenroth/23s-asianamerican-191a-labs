@@ -15,19 +15,15 @@ function addMarker(lat,lng,title,message){
     return message
 }
 
-fetch("map.geojson")
-    .then(response => {
-        return response.json()
-    })
-    .then(data =>{
-        // Basic Leaflet method to add GeoJSON data
-        L.geoJSON(data, {
-                pointToLayer: (feature, latlng) => { 
-                    return L.circleMarker(latlng, {color: feature.properties.color})
-                }
-            }).bindPopup(layer => {
-                return layer.feature.properties.place;
-            }).addTo(map);
-    })
-
-
+function loadData(url){
+    fetch(url)
+        .then(response => {
+            return response
+        })
+        .then(data =>{
+            // Basic Leaflet method to add GeoJSON data
+            console.log(data)
+        })
+}
+const dataURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQhTbjO0kx1uuo1DfQV1E3PQAVuFl1mrBKNi_-rW21Sz4CV75eolSGzR9MubRg1uO0Gmg1Y8vLUcyuf/pub?output=csv"
+loadData(dataURL)
