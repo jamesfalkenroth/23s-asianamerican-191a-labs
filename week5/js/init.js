@@ -9,21 +9,28 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 // create a function to add markers
-function addMarker(lat,lng,title,message){
+function addMarker(lat,lng,title,prompt,message){
     console.log(message)
-    L.marker([lat,lng]).addTo(map).bindPopup(`<h2>${title}</h2> <h3>${message}</h3>`)
+    L.marker([lat,lng]).addTo(map).bindPopup(`<h2>${title}</h2> <h3>${prompt}</h3> <h3>${message}</h3>`)
     return message
 }
 
+const dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSEcGaieNJJaf1Fkh0pwp8hvhnHYJJzV2TnCXHU8pBEWveti9_LuiZFZ7oAytgNcy0mrDJLKLs1HU-j/pub?output=csv"
+
 function loadData(url){
-    fetch(url)
-        .then(response => {
-            return response
-        })
-        .then(data =>{
-            // Basic Leaflet method to add GeoJSON data
-            console.log(data)
-        })
+    Papa.parse(url, {
+        header: true,
+        download: true,
+        complete: results => processData(results)
+    })
 }
-const dataURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQhTbjO0kx1uuo1DfQV1E3PQAVuFl1mrBKNi_-rW21Sz4CV75eolSGzR9MubRg1uO0Gmg1Y8vLUcyuf/pub?output=csv"
-loadData(dataURL)
+
+function processData(results){
+    console.log(results)
+    results.data.forEach(data => {
+        console.log(data)
+        addMarker(data.lat,data.lng,data['Where do you consider your primary place of residence?'],"Used FQHC?:",data['Have you ever used the services of any FQHCs in your area?'])
+    })
+}
+
+loadData(dataUrl)

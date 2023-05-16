@@ -1,18 +1,19 @@
 body{
     display: grid;
-    grid-auto-rows: auto 1fr;
+    grid-template-rows: 50px auto auto;
     grid-template-areas: "header" "main_content" "footer";
-    background-color: rgb(15, 103, 133);
+    background-color: aqua;
+    gap: 10px;
 }
 
 header{
     grid-area: header;
+    justify-self: center;
+    align-self: center;
 }
 
 #footer{
     grid-area: footer;
-    font-family: sans-serif;
-    color: white;
 }
 
 .main{
@@ -24,6 +25,9 @@ header{
 
 #contents{
     grid-area: content;
+    display: grid;
+    grid-template-rows: 0.1fr 0.1fr; 
+    grid-template-areas: "buttonHome" "survey"
 }
 
 #the_map{
@@ -31,13 +35,12 @@ header{
     grid-area: main_map;
 }
 
-h1 {
-    font-family: sans-serif;
-    color: white;
-  }
+#theSurvey{
+    grid-area: survey;
+}
 
-
-p {
-    font-family: sans-serif;
-    color: white;
+#placeForButtons{
+    grid-area: buttonHome;
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
 }
