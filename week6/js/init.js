@@ -11,8 +11,8 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 function addMarker(data){
     // console.log(data)
     // these are the names of our lat/long fields in the google sheets:
-    L.marker([data.lat,data.lng]).addTo(map).bindPopup(`<h2>${data['Where do you consider your primary place of residence?']}</h2> <h3>Used FQHC?: ${data['Have you ever used the services of any FQHCs in your area?']}</h3>`)
-    createButtons(data.lat,data.lng,data['Where do you consider your primary place of residence?'])
+    L.marker([data.lat,data.lng]).addTo(map).bindPopup(`<h2>${data['Where is your primary city of residence?']}</h2> <h3>Used FQHC?: ${data['Have you ever used the services of any FQHCs in your area?']}</h3>`)
+    createButtons(data.lat,data.lng,data['Where is your primary city of residence?'])
     return
 }
 
