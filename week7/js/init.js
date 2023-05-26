@@ -43,13 +43,13 @@ function addMarker(data){
     
     if(data['Are you from a low-income household?'] == "Yes") {
         circleOptions.fillColor = "red"
-        low.addLayer(L.circleMarker([data.lat,data.lng],circleOptions).bindPopup(`<h2>${data['Where is your primary city of residence?']}</h2> <h3>Low-income</h3>`))
-        createButtons(data.lat,data.lng,data['Where is your primary city of residence?'])
+        low.addLayer(L.circleMarker([data.lat,data.lng],circleOptions).bindPopup(`<h2>${data['Where is your primary zip code of residence?']}</h2> <h3>Low-income</h3>`))
+        createButtons(data.lat,data.lng,data['Where is your primary zip code of residence?'])
         }
     else {
         circleOptions.fillColor = "blue"
-        notLow.addLayer(L.circleMarker([data.lat,data.lng],circleOptions).bindPopup(`<h2>${data['Where is your primary city of residence?']}</h2> <h3>Low-income? ${data['Are you from a low-income household?']}</h3>`))
-        createButtons(data.lat,data.lng,data['Where is your primary city of residence?'])
+        notLow.addLayer(L.circleMarker([data.lat,data.lng],circleOptions).bindPopup(`<h2>${data['Where is your primary zip code of residence?']}</h2> <h3>Low-income? ${data['Are you from a low-income household?']}</h3>`))
+        createButtons(data.lat,data.lng,data['Where is your primary zip code of residence?'])
     }
     return data 
 }
