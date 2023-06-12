@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TurfJs with Leaflet Spatial Join and papaparse</title>
+        <!-- hint: remember to change your page title! -->
+        <meta charset="utf-8" />
+        <link rel="shortcut icon" href="#">
+        <link rel="stylesheet" href="styles/style.css">
+
+        <!-- Leaflet's css-->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+        <!-- Leaflet's JavaScript-->
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+        <script src="js/papaparse.min.js"></script>
+
+        <!-- Adding the TurfJs library  -->
+        <script src='https://unpkg.com/@turf/turf@6.3.0/turf.min.js'></script>
+
+    </head>
+
+    <body>
+        <header>
+            Covid Vaccination Stories
+        </header>
+
+        <div class="main">
+            <div id="contents">
+                <div id="placeForButtons"></div>
+                <!-- Be sure to use your own survey here!!!!!!! -->
+                <div id="theSurvey">
+                    <div id="surveyButton">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScD0IOr_U4r0q4HlBkZ7olkA5OJpgInePF8DQbIrIWDeTm1jw/viewform">📝Take the survey</a>
+                    </div>
+                </div>
+
+            </div>
+            <div id="the_map">
+                <div id="legend">
+                    <div id="legend">
+                        <div id="englishFirstLegend">
+                            <input type="checkbox" id="vaccinatedCheckbox" checked>
+                            <label for="vaccinatedCheckbox">
+                            English First <svg height='10' width='10'><circle cx='5' cy='5' r='4' stroke='black' stroke-width='1' fill='red' /></svg>
+                    </label>
+                        </div>
+                        <div id="nonEnglishFirstLegend">
+                            <input type="checkbox" id="unvaccinatedCheckbox" checked>
+                            <label for="unvaccinatedCheckbox">
+                            Non English First <svg height='10' width='10'><circle cx='5' cy='5' r='4' stroke='black' stroke-width='1' fill='red' /></svg>
+                    </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            Copyright(2022)
+        </div>
+        <script src="js/init.js"></script>
+    </body>
+</html>
